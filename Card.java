@@ -1,21 +1,22 @@
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-/**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
- * @author surbhi parmar, 2020
- */ 
- 
 package ca.sheridancollege.project;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CARD implements Comparable<CARD>
+
+/**
+ *
+ * @author surbhi parmar,2020
+ */
+    
+public class Card implements Comparable<Card>
 {
-     private CARD()
+     private Card()
         {
         }
 
@@ -56,15 +57,15 @@ public class CARD implements Comparable<CARD>
                 return cdType;
         }
 
-        public static List<CARD> getPackOfCards()
+        public static List<Card> getPackOfCards()
         {
-                List<CARD> crdLst = new ArrayList<CARD>();
+                List<Card> crdLst = new ArrayList<Card>();
 
                 for (CARDTYPE types : CARDTYPE.values())
                 {
                         for (CARDNUMBER cNums : CARDNUMBER.values())
                         {
-                                CARD cd = new CARD();
+                                Card cd = new Card();
                                 cd.cdNumber = cNums;
                                 cd.cdType = types;
                                 crdLst.add(cd);
@@ -73,13 +74,13 @@ public class CARD implements Comparable<CARD>
                 return crdLst;
         }
 
-        public static void shuffleCards(List<CARD> cards)
+        public static void shuffleCards(List<Card> cards)
         {
                 Collections.shuffle(cards);
         }
 
         @Override
-        public int compareTo(CARD o)
+        public int compareTo(Card o)
         {
                 if (this.getCdNumber() == o.getCdNumber())
                 {
@@ -100,4 +101,3 @@ public class CARD implements Comparable<CARD>
         }
 }
     
-}
