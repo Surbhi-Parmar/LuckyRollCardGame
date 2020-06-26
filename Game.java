@@ -1,25 +1,29 @@
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
- */
-
-/**
- * The class that models your game. You should create a more specific
- * child of this class and instantiate the methods given.
- * @author surbhi parmar, 2020
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package ca.sheridancollege.project;
-import java.util.ArrayList;
-import java.util.*;
 
-public abstract class Game 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+/**
+ *
+ * @author surbhi parmar
+ */
+    public abstract class Game 
 {
-   private List<CARD>cards;
+   private List<Card>cards;
 
         private List<Player>players = new ArrayList<Player>();
 
-        private Map<Player, List<CARD>> cardsPlayerMap = new HashMap<Player, List<CARD>>();
+        private Map<Player, List<Card>> cardsPlayerMap = new HashMap<Player, List<Card>>();
 
         private int currentPlayerIdx = 0;
 
@@ -37,15 +41,15 @@ public abstract class Game
                 return players;
         }
 
-        public CardGame()
+        public  void CardGame()
         {
-                cards = CARD.getPackOfCards();
+                cards = Card.getPackOfCards();
         }
 
         public void distributeCardsForPlayers(List<Player> plys)
         {
                 this.players = plys;
-                CARD.shuffleCards(cards);
+                Card.shuffleCards(cards);
                 if (cardsPlayerMap.size() == 0)
                         cardsPlayerMap.clear();
 
@@ -53,7 +57,7 @@ public abstract class Game
                 for (Player pl : players)
                 {
                         pl.setPoints(0);
-                        List<CARD> cds = new ArrayList<CARD>();
+                        List<Card> cds = new ArrayList<Card>();
                         int cardLimit = m + numberOfCardsPerPlayer;
                         for (int i = m; i < cardLimit; i++)
                         {
@@ -70,8 +74,8 @@ public abstract class Game
                 createMultipleUser(numberOfPlayers);
                 int i = 0;
                 System.out.println("Game Started.....  ");
-                List<CARD> selCards = new ArrayList<CARD>();
-                CARD maxCard = null;
+                List<Card> selCards = new ArrayList<Card>();
+                Card maxCard = null;
                 Player maxPlayer = new Player(0);
                 distributeCardsForPlayers(players);
                 for (int j = 0; j < numberOfCardsPerPlayer; j++)
@@ -95,7 +99,7 @@ public abstract class Game
 
                                                 in = new Scanner(System.in);
                                                 int m = in.nextInt();
-                                                CARD c = cardsPlayerMap.get(player).get(m - 1);
+                                                Card c = cardsPlayerMap.get(player).get(m - 1);
                                                 System.out.println("Card Selected -> " + c.toString());
                                                 cardsPlayerMap.get(player).remove(m - 1);
                                                 if (maxCard == null)
@@ -221,4 +225,4 @@ public abstract class Game
         }
 }
     
-}//end class
+//end class
