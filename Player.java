@@ -1,16 +1,15 @@
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-
-/**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
- * @author surbhi parmar, 2020
- */
-
 package ca.sheridancollege.project;
-public class Player implements Comparable<Player>
+
+/**
+ *
+ * @author surbhi parmar
+ */
+    public class Player implements Comparable<Player>
 {
        
         public Player(int id)
@@ -105,3 +104,4 @@ public class Player implements Comparable<Player>
                         return -1;
         }
 }
+
